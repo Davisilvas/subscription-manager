@@ -9,6 +9,23 @@ footer a{
     text-decoration: none;
     color: #ECEFF4;
     cursor: pointer;
+    position: relative;
+}
+
+footer a::before{
+    content: '';
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -.25rem;
+    left: 0;
+    transition: width .4s;
+}
+
+footer a:hover::before{
+    width: 100%;
 }
 
 .footer-myself-desc{
@@ -19,10 +36,14 @@ footer a{
     text-align: center;
     font-size: 14px;
     font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
 }
 
 .footer-myself-desc p{
     margin-top: 0;
+    width: 95%;
 }
 
 .footer-myself-desc h2{
@@ -30,6 +51,11 @@ footer a{
     font-weight: 500;
     margin-top: 0;
     margin-bottom: 3px;
+}
+
+.footer-myself-desc a{
+    line-height: 16px;
+    margin-bottom: 0.5em;
 }
 
 .footer-prj-desc{
@@ -40,10 +66,14 @@ footer a{
     text-align: center;
     font-weight: 300;
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer-prj-desc p{
     margin-top: 0;
+    width: 90%;
 }
 
 .footer-prj-desc h2{
@@ -53,10 +83,17 @@ footer a{
     margin-bottom: 3px;
 }
 
+.footer-prj-desc a{
+    line-height: 16px;
+    position: relative;
+}
+
 .footer-nav{
     margin-top: 0;
     padding: 12px;
     width: 30%;
+    display: flex;
+    justify-content: center;
 }
 
 .footer-nav h2{
@@ -70,10 +107,16 @@ footer a{
 .footer-nav ul{
     margin-top: 5px;
     list-style: none;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
 }
-.footer-nav li{
+.footer-nav-links{
     text-align: center;
     font-size: 16px;
     font-weight: 300;
-    margin-bottom: 0.6em;
+    margin-bottom: 0.55em;
+    line-height: 20px;
+    position: relative;
 }

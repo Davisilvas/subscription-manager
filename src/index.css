@@ -2,6 +2,9 @@
 
 body{
   background-color: #2E3440;
+  /* background-image: radial-gradient(#8fbcbb 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  background-color: #2e3440; */
   color: #ECEFF4;
   font-family: 'Roboto', sans-serif;
   margin: 0;
