@@ -3,7 +3,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
     return (
-        <nav>
+        <nav className='main-navigation'>
             <div className="group-one">
                 <span className="logo-link">Dummy</span>
             </div>

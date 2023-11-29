@@ -1,10 +1,11 @@
-import {useState, useEffect } from 'react'
+import {useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import  './Auth.css'
+import  './Auth.css';
 
 const Register = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [gender, setGender] = useState('');
     const [cpf, setCpf] = useState('');
     const [email, setEmail] = useState('');
@@ -58,6 +59,12 @@ const Register = () => {
                     type='password'
                     placeholder='Crie sua senha.'
                     onChange={(e) => setPassword(e.target.value)}
+                    min={0}
+                />
+                <input 
+                    type='password'
+                    placeholder='Confirme sua senha.'
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     min={0}
                 />
                 <input
