@@ -6,11 +6,18 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 
 function App() {
+  const users = [];
+  
+  const createStorage = () => {
+      localStorage.setItem('users', JSON.stringify(users));
+  }
 
   return (
     <>
       <Navbar />
-      <Outlet />
+      <div className="main-container">
+        <Outlet />
+      </div>
       <Footer />
     </>
   )

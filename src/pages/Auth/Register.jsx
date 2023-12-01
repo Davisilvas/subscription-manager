@@ -1,19 +1,22 @@
 import {useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import  './Auth.css';
+import { useAuth } from '../../hooks/useAuth';
 
 const Register = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [gender, setGender] = useState('');
     const [cpf, setCpf] = useState('');
     const [email, setEmail] = useState('');
     const [birthday, setBirthday] = useState('');
     const [age, setAge] = useState(0);
 
+    const {createUser} = useAuth(name, email, cpf, birthday, age, password, confirmPassword)
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        createUser;
     }
 
     //console.log(name, password,cpf, email,birthday, age);
