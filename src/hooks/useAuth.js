@@ -2,17 +2,15 @@ import { useState } from "react";
 
 export const useAuth = (name, email, cpf, birthday, age, password, confirmPassword) => {
 
-    const [user, setUser] = useState([]);
-
-    const biggerThanSix = false;
-    const smallerThanSixteen = false;
-    const areEquals = false;
+    let biggerThanSix = false;
+    let smallerThanSixteen = false;
+    let areEquals = false;
 
     const checkingMinimumCharacters = () => {
-        if (password.length >= 6){
-            biggerThanSix = true;
-        } else {
+        if (password.length < 5){  
             console.log("password should contain at least 6 characters")
+        } else {
+            biggerThanSix = true;
         }
     }
 
@@ -37,7 +35,9 @@ export const useAuth = (name, email, cpf, birthday, age, password, confirmPasswo
         checkingMaximumCharacters();
         checkingIfPasswordsAreEqual();
 
-        if(name, email, cpf, birthday, age, biggerThanSix, smallerThanSixteen, areEquals){
+        const USER_VALIDATE_CONDITION = name && email && cpf && birthday && age && biggerThanSix && smallerThanSixteen && areEquals
+
+        if(USER_VALIDATE_CONDITION){
 
             const newUser = {
                 userName: name,
@@ -47,10 +47,11 @@ export const useAuth = (name, email, cpf, birthday, age, password, confirmPasswo
                 userAge: age,
                 userPassword: password
             }
-
-            setUser((prevUsers) => [...prevUsers, newUser])
+            console.log(newUser)
+            return newUser
         }
+        return "N foi possivel criar novo user."
     }
 
-    return {createUser, user};
+    return {createUser};
 }

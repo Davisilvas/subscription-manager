@@ -11,19 +11,20 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [birthday, setBirthday] = useState('');
     const [age, setAge] = useState(0);
+    const [user, setUser] = useState([]);
 
-    const {createUser, user} = useAuth(name, email, cpf, birthday, age, password, confirmPassword)
+    const {createUser} = useAuth(name, email, cpf, birthday, age, password, confirmPassword)
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        createUser;
+        let newUser = createUser();
+        setUser((prevUser) => [...prevUser, newUser]);
     }
 
-    if (user){
-        console.log(user)
-    }
+    useEffect(() => {
+        localStorage.setItem('users', JSON.stringify(user))
+    }, [user])
 
-    //console.log(name, password,cpf, email,birthday, age);
 
     return (
         <div id="register">
