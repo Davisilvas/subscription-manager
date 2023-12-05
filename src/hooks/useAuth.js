@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export const useAuth = (name, email, cpf, birthday, age, password, confirmPassword) => {
+
+    const [user, setUser] = useState([]);
 
     const biggerThanSix = false;
     const smallerThanSixteen = false;
@@ -34,7 +38,6 @@ export const useAuth = (name, email, cpf, birthday, age, password, confirmPasswo
         checkingIfPasswordsAreEqual();
 
         if(name, email, cpf, birthday, age, biggerThanSix, smallerThanSixteen, areEquals){
-            const storedUsers = JSON.parse(localStorage.getItem('users'));
 
             const newUser = {
                 userName: name,
@@ -45,11 +48,9 @@ export const useAuth = (name, email, cpf, birthday, age, password, confirmPasswo
                 userPassword: password
             }
 
-            storedUsers.push(newUser);
-
-            localStorage.setItem('users', JSON.stringify(storedUsers));
+            setUser((prevUsers) => [...prevUsers, newUser])
         }
     }
 
-    return createUser;
+    return {createUser, user};
 }

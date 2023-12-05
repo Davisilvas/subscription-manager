@@ -8,9 +8,9 @@ import Footer from './components/Footer/Footer';
 function App() {
   const users = [];
   
-  const createStorage = () => {
+  /*const createStorage = () => {
       localStorage.setItem('users', JSON.stringify(users));
-  }
+  }*/
 
   return (
     <>

@@ -12,11 +12,15 @@ const Register = () => {
     const [birthday, setBirthday] = useState('');
     const [age, setAge] = useState(0);
 
-    const {createUser} = useAuth(name, email, cpf, birthday, age, password, confirmPassword)
+    const {createUser, user} = useAuth(name, email, cpf, birthday, age, password, confirmPassword)
 
     const handleSubmit = (e) => {
         e.preventDefault();
         createUser;
+    }
+
+    if (user){
+        console.log(user)
     }
 
     //console.log(name, password,cpf, email,birthday, age);
