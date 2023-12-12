@@ -15,6 +15,15 @@ app.use(express.urlencoded({extended: false}))
 // routes
 const router = require('./routes/Router.js')
 
+//Solve Cors
+app.use(cors({credentials: true, origin: "http://localhost:5173"}))
+
+// upload directory
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")))
+
+// DB Connection
+require("./config/db.js")
+
 app.use(router);
 
 app.listen(port, () => {
